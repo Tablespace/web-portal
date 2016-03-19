@@ -75,6 +75,7 @@ User.find({}).remove()
               console.log(user)
               Order.create({
                 "table_number": 14,
+                "total": 15.5,
                 "restaurant_id": user._id ,
                 "order_time": Date.now(),
                 "items": [{
@@ -91,6 +92,7 @@ User.find({}).remove()
                 }]
               }, {
                 "table_number": 8,
+                "total": 12.25,
                 "restaurant_id": user._id ,
                 "order_time": Date.now(),
                 "items": [{
@@ -105,6 +107,7 @@ User.find({}).remove()
                 }]
               }, {
                 "table_number": 6,
+                "total": 18,
                 "restaurant_id": user._id ,
                 "order_time": Date.now(),
                 "items": [{
