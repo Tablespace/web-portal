@@ -8,3 +8,4 @@ angular.module('webPortalApp')
         template: '<edit-menu></edit-menu>'
       });
   });
+
