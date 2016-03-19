@@ -2,13 +2,16 @@
 (function () {
 
   class OrdersComponent {
-    constructor($http) {
-      // console.log($http.get('/api/orders'))
+    constructor($scope, Auth, $http) {
+      var user = Auth.getCurrentUser();
+      console.log(Auth)
+      console.log(user)
       var that = this;
       $http({
         method: 'GET',
-        url: '/api/orders'
+        url: '/api/orders/restaurant/' + user._id
       }).then(function successCallback(response) {
+        console.log(response)
         that.orders = response.data;
       }, function errorCallback(response) {
         // do something if bad things happen
