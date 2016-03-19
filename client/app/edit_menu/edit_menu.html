@@ -1,0 +1,14 @@
+<sidebar></sidebar>
+<div class="col-xs-8 col-xs-offset-4 col-md-10 col-md-offset-2">
+  <h1>Edit Menu</h1>
+
+  <uib-tabset>
+    <uib-tab ng-repeat="menu in vm.menus" index="menu.index">
+      <uib-tab-heading>
+        {{menu.heading}}
+      </uib-tab-heading>
+      <button type="button" class="btn btn-default">Add New Menu Item</button>
+      {{menu.content}}
+    </uib-tab>
+  </uib-tabset>
+</div>
