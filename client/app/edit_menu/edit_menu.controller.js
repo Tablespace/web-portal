@@ -2,47 +2,17 @@
 (function () {
 
   class EditMenuComponent {
-    constructor() {
-      this.menus = [
-        {
-          index: 0,
-          title: "Dinner Menu",
-          content: "This is my Dinner Menu!",
-          menu_items: [
-            {
-              title: "Test item",
-              description: "Tender juicy tomatoes"
-            },
-            {
-              title: "Test item 1",
-              description: "Tender juicy tomatoes"
-            },
-            {
-              title: "Test item 1",
-              description: "Tender juicy tomatoes"
-            },
-            {
-              title: "Test item 1",
-              description: "Tender juicy tomatoes"
-            },
-            {
-              title: "Test item 1",
-              description: "Tender juicy tomatoes"
-            }
-          ]
-        },
-        {
-          index: 1,
-          title: "Lunch Menu",
-          content: "This is my Lunch Menu!",
-          menu_items: [
-            {
-              title: "Test item 1",
-              description: "Tender juicy tomatoes"
-            }
-          ]
-        }
-      ]
+    constructor($scope, Auth, $http) {
+      var user = Auth.getCurrentUser();
+      var that = this;
+      $http({
+        method: 'GET',
+        url: '/api/menus/restaurant/' + user._id
+      }).then(function successCallback(response) {
+        that.menus = response.data
+      }, function errorCallback(response) {
+        // do something if bad things happen
+      });
     }
   }
 

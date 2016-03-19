@@ -105,4 +105,4 @@ exports.getorders = function(req, res) {
   Order.findAsync({restaurant_id: req.params.restaurant_id})
     .then(responseWithResult(res))
     .catch(handleError(res));
-}
+};

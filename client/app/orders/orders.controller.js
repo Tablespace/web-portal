@@ -4,8 +4,6 @@
   class OrdersComponent {
     constructor($scope, Auth, $http) {
       var user = Auth.getCurrentUser();
-      console.log(Auth)
-      console.log(user)
       var that = this;
       $http({
         method: 'GET',

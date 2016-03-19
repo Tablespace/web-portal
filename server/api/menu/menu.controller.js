@@ -100,3 +100,9 @@ exports.destroy = function(req, res) {
     .then(removeEntity(res))
     .catch(handleError(res));
 };
+
+exports.getmenus = function(req, res) {
+  Menu.findAsync({restaurant_id: req.params.restaurant_id})
+    .then(responseWithResult(res))
+    .catch(handleError(res));
+};
