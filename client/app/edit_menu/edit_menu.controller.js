@@ -6,12 +6,62 @@
       this.menus = [
         {
           index: 0,
-          heading: "Dinner Menu",
+          title: "Dinner Menu",
           content: "This is my Dinner Menu!"
         },
         {
           index: 1,
-          heading: "Lunch Menu",
+          title: "Lunch Menu",
+          content: "This is my Lunch Menu!"
+        },
+        {
+          index: 0,
+          title: "Dinner Menu",
+          content: "This is my Dinner Menu!"
+        },
+        {
+          index: 0,
+          title: "Dinner Menu",
+          content: "This is my Dinner Menu!"
+        },
+        {
+          index: 0,
+          title: "Dinner Menu",
+          content: "This is my Dinner Menu!"
+        },
+        {
+          index: 0,
+          title: "Dinner Menu",
+          content: "This is my Dinner Menu!"
+        },
+        {
+          index: 0,
+          title: "Dinner Menu",
+          content: "This is my Dinner Menu!"
+        },
+        {
+          index: 1,
+          title: "Lunch Menu",
+          content: "This is my Lunch Menu!"
+        },
+        {
+          index: 0,
+          title: "Dinner Menu",
+          content: "This is my Dinner Menu!"
+        },
+        {
+          index: 1,
+          title: "Lunch Menu",
+          content: "This is my Lunch Menu!"
+        },
+        {
+          index: 0,
+          title: "Dinner Menu",
+          content: "This is my Dinner Menu!"
+        },
+        {
+          index: 1,
+          title: "Lunch Menu",
           content: "This is my Lunch Menu!"
         }
       ]
