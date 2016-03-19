@@ -1,7 +1,7 @@
 'use strict';
 
 import app from '../..';
-import {User} from '../../sqldb';
+import User from './user.model';
 import request from 'supertest';
 
 describe('User API:', function() {
@@ -9,8 +9,8 @@ describe('User API:', function() {
 
   // Clear users before testing
   before(function() {
-    return User.destroy({ where: {} }).then(function() {
-      user = User.build({
+    return User.remove().then(function() {
+      user = new User({
         name: 'Fake User',
         email: 'test@example.com',
         password: 'password'
@@ -22,7 +22,7 @@ describe('User API:', function() {
 
   // Clear users after testing
   after(function() {
-    return User.destroy({ where: {} });
+    return User.remove();
   });
 
   describe('GET /api/users/me', function() {
