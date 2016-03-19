@@ -7,57 +7,30 @@
         {
           index: 0,
           title: "Dinner Menu",
-          content: "This is my Dinner Menu!"
-        },
-        {
-          index: 1,
-          title: "Lunch Menu",
-          content: "This is my Lunch Menu!"
-        },
-        {
-          index: 0,
-          title: "Dinner Menu",
-          content: "This is my Dinner Menu!"
-        },
-        {
-          index: 0,
-          title: "Dinner Menu",
-          content: "This is my Dinner Menu!"
-        },
-        {
-          index: 0,
-          title: "Dinner Menu",
-          content: "This is my Dinner Menu!"
-        },
-        {
-          index: 0,
-          title: "Dinner Menu",
-          content: "This is my Dinner Menu!"
-        },
-        {
-          index: 0,
-          title: "Dinner Menu",
-          content: "This is my Dinner Menu!"
-        },
-        {
-          index: 1,
-          title: "Lunch Menu",
-          content: "This is my Lunch Menu!"
-        },
-        {
-          index: 0,
-          title: "Dinner Menu",
-          content: "This is my Dinner Menu!"
-        },
-        {
-          index: 1,
-          title: "Lunch Menu",
-          content: "This is my Lunch Menu!"
-        },
-        {
-          index: 0,
-          title: "Dinner Menu",
-          content: "This is my Dinner Menu!"
+          content: "This is my Dinner Menu!",
+          menu_items: [
+            {
+              title: "Test item",
+              description: "Tender juicy tomatoes"
+            },
+            {
+              title: "Test item 1",
+              description: "Tender juicy tomatoes"
+            },
+            {
+              title: "Test item 1",
+              description: "Tender juicy tomatoes"
+            },
+            {
+              title: "Test item 1",
+              description: "Tender juicy tomatoes"
+            },
+            {
+              title: "Test item 1",
+              description: "Tender juicy tomatoes"
+            }
+
+          ]
         },
         {
           index: 1,
