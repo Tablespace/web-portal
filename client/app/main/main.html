@@ -1,4 +1,13 @@
-<sidebar></sidebar>
-<div class="col-xs-8 col-xs-offset-4 col-md-10 col-md-offset-2">
-  <p>Hi there!</p>
+<div ng-show="vm.isLoggedIn()">
+  <sidebar></sidebar>
+  <div class="col-xs-8 col-xs-offset-4 col-md-10 col-md-offset-2">
+    <h1>Home</h1>
+    <p>Hi! I am now logged in.</p>
+  </div>
+</div>
+<div ng-hide="vm.isLoggedIn()">
+  <div>
+    <h1>Home</h1>
+    <p>I am not logged in.</p>
+  </div>
 </div>
