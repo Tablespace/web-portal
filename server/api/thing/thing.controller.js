@@ -10,7 +10,7 @@
 'use strict';
 
 import _ from 'lodash';
-import {Thing} from '../../sqldb';
+import Thing from './thing.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -23,7 +23,8 @@ function respondWithResult(res, statusCode) {
 
 function saveUpdates(updates) {
   return function(entity) {
-    return entity.updateAttributes(updates)
+    var updated = _.merge(entity, updates);
+    return updated.save()
       .then(updated => {
         return updated;
       });
@@ -33,7 +34,7 @@ function saveUpdates(updates) {
 function removeEntity(res) {
   return function(entity) {
     if (entity) {
-      return entity.destroy()
+      return entity.remove()
         .then(() => {
           res.status(204).end();
         });
@@ -60,18 +61,14 @@ function handleError(res, statusCode) {
 
 // Gets a list of Things
 export function index(req, res) {
-  return Thing.findAll()
+  return Thing.find().exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
 // Gets a single Thing from the DB
 export function show(req, res) {
-  return Thing.find({
-    where: {
-      _id: req.params.id
-    }
-  })
+  return Thing.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -89,11 +86,7 @@ export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  return Thing.find({
-    where: {
-      _id: req.params.id
-    }
-  })
+  return Thing.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
     .then(respondWithResult(res))
@@ -102,11 +95,7 @@ export function update(req, res) {
 
 // Deletes a Thing from the DB
 export function destroy(req, res) {
-  return Thing.find({
-    where: {
-      _id: req.params.id
-    }
-  })
+  return Thing.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));

@@ -1,10 +1,10 @@
 'use strict';
 
 import app from '../..';
-import {User} from '../../sqldb';
+import User from './user.model';
 var user;
 var genUser = function() {
-  user = User.build({
+  user = new User({
     provider: 'local',
     name: 'Fake User',
     email: 'test@example.com',
@@ -15,10 +15,8 @@ var genUser = function() {
 
 describe('User Model', function() {
   before(function() {
-    // Sync and clear users before testing
-    return User.sync().then(function() {
-      return User.destroy({ where: {} });
-    });
+    // Clear users before testing
+    return User.remove();
   });
 
   beforeEach(function() {
@@ -26,11 +24,11 @@ describe('User Model', function() {
   });
 
   afterEach(function() {
-    return User.destroy({ where: {} });
+    return User.remove();
   });
 
   it('should begin with no users', function() {
-    return expect(User.findAll()).to
+    return expect(User.find({}).exec()).to
       .eventually.have.length(0);
   });
 

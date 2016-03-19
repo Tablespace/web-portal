@@ -4,16 +4,9 @@
 // ==================================
 module.exports = {
 
-  // Sequelize connection opions
-  sequelize: {
-    uri: 'sqlite://',
-    options: {
-      logging: false,
-      storage: 'dev.sqlite',
-      define: {
-        timestamps: false
-      }
-    }
+  // MongoDB connection options
+  mongo: {
+    uri: 'mongodb://localhost/webportal-dev'
   },
 
   // Seed database on startup
