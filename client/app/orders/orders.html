@@ -1,5 +1,32 @@
 <sidebar></sidebar>
 <div class="col-xs-8 col-xs-offset-4 col-md-10 col-md-offset-2">
   <h1>Orders</h1>
-  <p>This is the orders view.</p>
+  <!-- Placeholder Content -->
+  <div ng-repeat="order in vm.orders">
+    <div class="panel panel-default">
+      <div class="panel-heading">Order Number {{order.order_id}}</div>
+      <div class="panel-body">
+        <p>Table Number {{order.table_number}}</p>
+        <p>Ordered at: {{order.order_time}}</p>
+      </div>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Customer Name</th>
+          <th>Quantity</th>
+          <th>Item Name</th>
+          <th>Modifications</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in order.items">
+          <td>{{item.customer_name}}</td>
+          <td>{{item.quantity}}</td>
+          <td>{{item.item_name}}</td>
+          <td>{{item.modifications}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
