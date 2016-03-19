@@ -29,13 +29,18 @@
               title: "Test item 1",
               description: "Tender juicy tomatoes"
             }
-
           ]
         },
         {
           index: 1,
           title: "Lunch Menu",
-          content: "This is my Lunch Menu!"
+          content: "This is my Lunch Menu!",
+          menu_items: [
+            {
+              title: "Test item 1",
+              description: "Tender juicy tomatoes"
+            }
+          ]
         }
       ]
     }
