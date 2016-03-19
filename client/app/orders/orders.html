@@ -1,10 +1,10 @@
 <sidebar></sidebar>
-<div class="col-xs-8 col-xs-offset-4 col-md-10 col-md-offset-2">
+<div class="col-xs-8 col-xs-offset-4 col-md-10 col-md-offset-2 main-content">
   <h1>Orders</h1>
   <!-- Placeholder Content -->
   <div ng-repeat="order in vm.orders">
     <div class="panel panel-default">
-      <div class="panel-heading">Order Number {{order.order_id}}</div>
+      <div class="panel-heading">Order Number {{order._id}}</div>
       <div class="panel-body">
         <p>Table Number {{order.table_number}}</p>
         <p>Ordered at: {{order.order_time}}</p>
@@ -23,7 +23,7 @@
           <td>{{item.customer_name}}</td>
           <td>{{item.quantity}}</td>
           <td>{{item.item_name}}</td>
-          <td>{{item.modifications}}</td>
+          <td>{{item.standard_mods}} {{item.special_mods ? ", " + item.special_mods : ""}}</td>
         </tr>
         </tbody>
       </table>

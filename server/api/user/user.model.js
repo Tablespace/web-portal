@@ -17,7 +17,15 @@ var UserSchema = new Schema({
   },
   password: String,
   provider: String,
-  salt: String
+  salt: String,
+  phone: String,
+  address: String,
+  logo: String,
+  hours: String,
+  usertype: {
+    type: String,
+    default: 'customer'
+  }
 });
 
 /**

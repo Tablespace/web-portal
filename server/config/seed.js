@@ -6,6 +6,7 @@
 'use strict';
 import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
+import Order from '../api/order/order.model';
 
 Thing.find({}).remove()
   .then(() => {
@@ -48,6 +49,16 @@ User.find({}).remove()
       password: 'test'
     }, {
       provider: 'local',
+      name: 'Famoso',
+      email: 'famoso@restaurant.com',
+      password: 'famoso',
+      address: '11750 Jasper Avenue NW, Edmonton, AB, T5K 0N3, Canada',
+      phone: '780-732-0700',
+      logo: 'http://famoso.ca/wp-content/themes/famoso/images/logo-mini-famoso.png',
+      usertype: 'restaurant',
+      hours: 'Sunday & Monday: 11am - 10pm, Tuesday - Saturday: 11am - 11pm'
+    }, {
+      provider: 'local',
       role: 'admin',
       name: 'Admin',
       email: 'admin@example.com',
@@ -55,5 +66,58 @@ User.find({}).remove()
     })
     .then(() => {
       console.log('finished populating users');
+    })
+    .then(() => {
+      Order.find({}).remove()
+        .then(() => {
+          User.findOne({email: 'famoso@restaurant.com'})
+            .then((user) => {
+              console.log(user)
+              Order.create({
+                "table_number": 14,
+                "restaurant_id": user._id ,
+                "order_time": Date.now(),
+                "items": [{
+                  "customer_name": "Tim",
+                  "quantity": 1,
+                  "item_name": "Chicken Fingers",
+                  "standard_mods": "Add chili sauce",
+                  "special_mods": "fries cannot be in shellfish oil"
+                }, {
+                  "customer_name": "Tim",
+                  "quantity": 1,
+                  "item_name": "Salad",
+                  "standard_mods": "Add ceasar dressing"
+                }]
+              }, {
+                "table_number": 8,
+                "restaurant_id": user._id ,
+                "order_time": Date.now(),
+                "items": [{
+                  "customer_name": "John",
+                  "quantity": 1,
+                  "item_name": "Chicken Wings",
+                  "standard_mods": "Add ranch sauce",
+                }, {
+                  "customer_name": "John",
+                  "quantity": 1,
+                  "item_name": "Sprite",
+                }]
+              }, {
+                "table_number": 6,
+                "restaurant_id": user._id ,
+                "order_time": Date.now(),
+                "items": [{
+                  "customer_name": "Sarah",
+                  "quantity": 1,
+                  "item_name": "Famoso Pizza",
+                  "standard_mods": "Add ham",
+                  "special_mods": "Gluten free"
+                }]
+              });
+            });
+        });
     });
   });
+
+
