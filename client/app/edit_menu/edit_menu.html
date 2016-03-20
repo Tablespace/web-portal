@@ -16,10 +16,6 @@
       <button type="button" class="btn btn-default" style="height: 50px">Edit Menu</button>
       <div class='md-padding' layout="row" layout-wrap >
 
-        <div style="vertical-align:middle; horiz-align:center; display: table; width: 200px;">
-          <button type="button" class="btn btn-default" style="height: 50px;">Add New Item</button>
-        </div>
-
         <md-card style="width: 200px;" ng-repeat="menuitem in menu.menu_items">
           <img src="{{menuitem.picture}}" class="md-card-image" alt="user avatar">
           <md-card-content>
@@ -31,6 +27,11 @@
             <md-button>Delete</md-button>
           </div>
         </md-card>
+
+        <div style="vertical-align:middle; horiz-align:center; display: table; width: 200px;">
+          <button type="button" class="btn btn-default" style="height: 50px;">Add New Item</button>
+        </div>
+        
       </div>
     </div>
   </div>
