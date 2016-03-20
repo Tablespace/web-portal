@@ -61,14 +61,3 @@
     });
 })();
 
-function Ctrl($scope) {
-
-  $scope.menu = {
-    index: 0,
-    title: ''
-  };
-
-  $scope.addMenu = function(title){
-    alert("Title id is: "+ title);
-  };
-}
