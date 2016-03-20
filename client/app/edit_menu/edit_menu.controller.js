@@ -21,7 +21,7 @@
       });
     }
 
-    addMenu(title){
+    addMenu(title) {
       var that = this;
       var data = {
         title: title,
@@ -37,7 +37,20 @@
         that.menus.push(data)
       }, function errorCallback(response) {
       });
-    };
+    }
+
+    deleteMenu(menu) {
+      var that = this;
+      var index = that.menus.indexOf(menu);
+      this.$http({
+        method: 'DELETE',
+        url: '/api/menus/' + menu._id
+      }).then(function successCallback(response) {
+        that.menus.splice(index, 1);
+      }, function errorCallback(response) {
+        // do something if bad things happen
+      });
+    }
   }
 
   angular.module('webPortalApp')
