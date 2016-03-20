@@ -1,3 +1,6 @@
+<!-- styles for angular  material components -->
+<link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+
 <sidebar></sidebar>
 <div class="col-xs-8 col-xs-offset-4 col-md-10 col-md-offset-2 main-content">
   <h1>Edit Menu</h1>
@@ -22,16 +25,20 @@
             <h2>{{menuitem.title}}</h2>
             <p>{{menuitem.description}}</p>
           </md-card-content>
-          <div class="md-actions" layout="row" layout-align="end center">
-            <md-button>Edit</md-button>
-            <md-button>Delete</md-button>
+          <div class="md-actions" layout="row">
+            <div style="float: left">
+              <md-button>Delete</md-button>
+            </div>
+            <div style="float: right">
+              <md-button>Edit</md-button>
+            </div>
           </div>
         </md-card>
 
         <div style="vertical-align:middle; horiz-align:center; display: table; width: 200px;">
           <button type="button" class="btn btn-default" style="height: 50px;">Add New Item</button>
         </div>
-        
+
       </div>
     </div>
   </div>
