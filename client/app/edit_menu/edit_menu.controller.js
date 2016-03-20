@@ -3,7 +3,13 @@
 
   class EditMenuComponent {
     constructor($scope, Auth, $http) {
+
+      this.$scope = $scope;
+      this.$http = $http;
+
+      // console.log(this.$scope)
       var user = Auth.getCurrentUser();
+      this.currentUser = user;
       var that = this;
       $http({
         method: 'GET',
@@ -16,9 +22,22 @@
     }
 
     addMenu(title){
-      alert("Title id is: " + title);
+      var that = this;
+      var data = {
+        title: title,
+        restaurant_id: this.currentUser._id,
+        active: true,
+        menu_items: []
+      }
+      this.$http({
+        method: 'POST',
+        url: '/api/menus',
+        data: data
+      }).then(function successCallback(response) {
+        that.menus.push(data)
+      }, function errorCallback(response) {
+      });
     };
-
   }
 
   angular.module('webPortalApp')
