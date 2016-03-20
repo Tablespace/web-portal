@@ -6,12 +6,25 @@
 <div class="col-xs-8 col-xs-offset-4 col-md-10 col-md-offset-2 main-content">
   <h1>Edit Menu</h1>
 
-  <button type="button" class="btn btn-default">Add New Menu Item</button>
+  <div ng-app="webPortalApp" class="gridListdemoBasicUsage">
+
+  </div>
 
   <div ng-app="webPortalApp" class="gridListdemoBasicUsage">
+    <input type="text" name="input" ng-model="menu.title" required ng-trim="false">
+    <button ng-click="vm.addMenu(menu.title);" type="button" class="btn btn-default" style="height: 50px">Add New Menu</button>
+
     <div class="menu" ng-repeat="menu in vm.menus">
       <h1>{{menu.title}}</h1>
-      <div class='md-padding' layout="row" layout-wrap>
+
+      <button type="button" class="btn btn-default" style="height: 50px">Edit Menu</button>
+      <button type="button" class="btn btn-default" style="height: 50px">Delete Menu</button>
+      <div class='md-padding' layout="row" layout-wrap >
+
+        <div style="vertical-align:middle; horiz-align:center; display: table; width: 200px;">
+          <button type="button" class="btn btn-default" style="height: 50px;">Add New Item</button>
+        </div>
+
         <md-card style="width: 200px;" ng-repeat="menuitem in menu.menu_items">
           <img src="http://placehold.it/150x150" class="md-card-image" alt="user avatar">
           <md-card-content>
@@ -20,6 +33,7 @@
           </md-card-content>
           <div class="md-actions" layout="row" layout-align="end center">
             <md-button>Edit</md-button>
+            <md-button>Delete</md-button>
           </div>
         </md-card>
       </div>

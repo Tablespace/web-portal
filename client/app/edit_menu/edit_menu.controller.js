@@ -44,6 +44,11 @@
         }
       ]
     }
+
+    addMenu(title){
+      alert("Title id is: " + title);
+    };
+
   }
 
   angular.module('webPortalApp')
@@ -52,5 +57,16 @@
       controller: EditMenuComponent,
       controllerAs: 'vm'
     });
-
 })();
+
+function Ctrl($scope) {
+
+  $scope.menu = {
+    index: 0,
+    title: ''
+  };
+
+  $scope.addMenu = function(title){
+    alert("Title id is: "+ title);
+  };
+}
