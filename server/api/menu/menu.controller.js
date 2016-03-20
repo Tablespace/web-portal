@@ -102,7 +102,7 @@ exports.destroy = function(req, res) {
 };
 
 exports.getmenus = function(req, res) {
-  Menu.findAsync({restaurant_id: req.params.restaurant_id})
+  Menu.findAsync({restaurant_id: req.params.restaurant_id}, null, {sort: {'index': -1}})
     .then(responseWithResult(res))
     .catch(handleError(res));
 };

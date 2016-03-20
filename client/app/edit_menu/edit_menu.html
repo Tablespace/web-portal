@@ -7,31 +7,35 @@
   </div>
 
   <div ng-app="webPortalApp" class="gridListdemoBasicUsage">
-    <input type="text" name="input" ng-model="menu.title" required ng-trim="false">
-    <button ng-click="vm.addMenu(menu.title);" type="button" class="btn btn-default" style="height: 50px">Add New Menu</button>
+    <input type="text" class="form-control" style="width: 150px; display: inline;" name="input" ng-model="menu.title" required ng-trim="false">
+    <button ng-click="vm.addMenu(menu.title);" type="button" class="btn btn-default" style="height: 34px">Add New Menu</button>
 
     <div class="menu" ng-repeat="menu in vm.menus">
       <h1>{{menu.title}}</h1>
+      <div class="col-md-2">
+        <button ng-click="vm.addMenuItem(menu);" type="button" class="btn btn-default" style="height: 34px; width: 120px;">Add New Item</button><br><br>
+        <button type="button" class="btn btn-default" style="height: 34px; width: 120px;">Edit Menu</button><br><br>
+        <button ng-click="vm.deleteMenu(menu);" type="button" class="btn btn-default" style="height: 34px; width: 120px;">Delete Menu</button>
+      </div>
+      <div class="col-md-10">
+        <div class='md-padding' layout="row" layout-wrap >
 
-      <button type="button" class="btn btn-default" style="height: 50px">Edit Menu</button>
-      <button ng-click="vm.deleteMenu(menu);" type="button" class="btn btn-default" style="height: 50px">Delete Menu</button>
-      <div class='md-padding' layout="row" layout-wrap >
+          <!-- <div style="vertical-align:middle; horiz-align:center; display: table; width: 200px;">
+            <button type="button" class="btn btn-default" style="height: 50px;">Add New Item</button>
+          </div> -->
 
-        <div style="vertical-align:middle; horiz-align:center; display: table; width: 200px;">
-          <button type="button" class="btn btn-default" style="height: 50px;">Add New Item</button>
+          <md-card style="width: 200px;" ng-repeat="menuitem in menu.menu_items">
+            <img src="{{menuitem.picture}}" class="md-card-image" alt="user avatar">
+            <md-card-content>
+              <h2>{{menuitem.title}}</h2>
+              <p>{{menuitem.description}}</p>
+            </md-card-content>
+            <div class="md-actions" layout="row" layout-align="end center">
+              <md-button>Edit</md-button>
+              <md-button>Delete</md-button>
+            </div>
+          </md-card>
         </div>
-
-        <md-card style="width: 200px;" ng-repeat="menuitem in menu.menu_items">
-          <img src="{{menuitem.picture}}" class="md-card-image" alt="user avatar">
-          <md-card-content>
-            <h2>{{menuitem.title}}</h2>
-            <p>{{menuitem.description}}</p>
-          </md-card-content>
-          <div class="md-actions" layout="row" layout-align="end center">
-            <md-button>Edit</md-button>
-            <md-button>Delete</md-button>
-          </div>
-        </md-card>
       </div>
     </div>
   </div>

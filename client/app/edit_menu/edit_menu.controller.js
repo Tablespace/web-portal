@@ -2,10 +2,11 @@
 (function () {
 
   class EditMenuComponent {
-    constructor($scope, Auth, $http) {
+    constructor($scope, Auth, Modal, $http) {
 
       this.$scope = $scope;
       this.$http = $http;
+      this.Modal = Modal;
 
       // console.log(this.$scope)
       var user = Auth.getCurrentUser();
@@ -51,6 +52,11 @@
         // do something if bad things happen
       });
     }
+
+    addMenuItem(menu) {
+      console.log(this.Modal)
+      // this.Modal.confirm.delete()
+    }
   }
 
   angular.module('webPortalApp')
@@ -60,15 +66,3 @@
       controllerAs: 'vm'
     });
 })();
-
-function Ctrl($scope) {
-
-  $scope.menu = {
-    index: 0,
-    title: ''
-  };
-
-  $scope.addMenu = function(title){
-    alert("Title id is: "+ title);
-  };
-}

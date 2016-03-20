@@ -22,6 +22,37 @@ angular.module('webPortalApp')
 
     // Public API here
     return {
+      edit: {
+        addMenuItem() {
+          return function() {
+            var args = Array.prototype.slice.call(arguments),
+                name = args.shift(),
+                addItemModal;
+
+            addItemModal = openModal({
+              modal: {
+                dismissable: true,
+                title: 'Add Menu Item',
+                html: '<p>add menu item</p>',
+                buttons: [{
+                  classes: 'btn',
+                  text: 'Add'
+                }, {
+                  classes: 'btn btn-default',
+                  text: 'Cancel',
+                  click: function(e) {
+                    addItemModal.dismiss(e);
+                  }
+                }]
+              }
+            }, 'modal');
+
+            addItemModal.result.then(function(event) {
+              
+            })
+          }
+        }
+      },
 
       /* Confirmation modals */
       confirm: {
