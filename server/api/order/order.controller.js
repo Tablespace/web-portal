@@ -102,7 +102,7 @@ exports.destroy = function(req, res) {
 };
 
 exports.getorders = function(req, res) {
-  Order.findAsync({restaurant_id: req.params.restaurant_id})
+  Order.findAsync({restaurant_id: req.params.restaurant_id}, null, {sort: {'order_time':-1}})
     .then(responseWithResult(res))
     .catch(handleError(res));
 };

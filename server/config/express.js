@@ -50,21 +50,27 @@ export default function(app) {
   /**
    * Lusca - express server security
    * https://github.com/krakenjs/lusca
+   *
+   * NOTE:
+   * Right now I'm disabling this, mainly for the requests
+   * from a mobile device or a client other than the browser.
+   * Later we should find a way to get a csrf_token from mobile
+   * in order to authenticate.
    */
-  if ('test' !== env) {
-    app.use(lusca({
-      csrf: {
-        angular: true
-      },
-      xframe: 'SAMEORIGIN',
-      hsts: {
-        maxAge: 31536000, //1 year, in seconds
-        includeSubDomains: true,
-        preload: true
-      },
-      xssProtection: true
-    }));
-  }
+  // if ('test' !== env) {
+  //   app.use(lusca({
+  //     csrf: {
+  //       angular: true
+  //     },
+  //     xframe: 'SAMEORIGIN',
+  //     hsts: {
+  //       maxAge: 31536000, //1 year, in seconds
+  //       includeSubDomains: true,
+  //       preload: true
+  //     },
+  //     xssProtection: true
+  //   }));
+  // }
 
   app.set('appPath', path.join(config.root, 'client'));
 
