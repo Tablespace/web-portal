@@ -1,16 +1,16 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/orders              ->  index
- * POST    /api/orders              ->  create
- * GET     /api/orders/:id          ->  show
- * PUT     /api/orders/:id          ->  update
- * DELETE  /api/orders/:id          ->  destroy
+ * GET     /api/menus              ->  index
+ * POST    /api/menus              ->  create
+ * GET     /api/menus/:id          ->  show
+ * PUT     /api/menus/:id          ->  update
+ * DELETE  /api/menus/:id          ->  destroy
  */
 
 'use strict';
 
 var _ = require('lodash');
-var Order = require('./order.model');
+var Menu = require('./menu.model');
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
@@ -59,50 +59,50 @@ function removeEntity(res) {
   };
 }
 
-// Gets a list of Orders
+// Gets a list of Menus
 exports.index = function(req, res) {
-  Order.findAsync()
+  Menu.findAsync()
     .then(responseWithResult(res))
     .catch(handleError(res));
 };
 
-// Gets a single Order from the DB
+// Gets a single Menu from the DB
 exports.show = function(req, res) {
-  Order.findByIdAsync(req.params.id)
+  Menu.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(responseWithResult(res))
     .catch(handleError(res));
 };
 
-// Creates a new Order in the DB
+// Creates a new Menu in the DB
 exports.create = function(req, res) {
-  Order.createAsync(req.body)
+  Menu.createAsync(req.body)
     .then(responseWithResult(res, 201))
     .catch(handleError(res));
 };
 
-// Updates an existing Order in the DB
+// Updates an existing Menu in the DB
 exports.update = function(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  Order.findByIdAsync(req.params.id)
+  Menu.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
     .then(responseWithResult(res))
     .catch(handleError(res));
 };
 
-// Deletes a Order from the DB
+// Deletes a Menu from the DB
 exports.destroy = function(req, res) {
-  Order.findByIdAsync(req.params.id)
+  Menu.findByIdAsync(req.params.id)
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));
 };
 
-exports.getorders = function(req, res) {
-  Order.findAsync({restaurant_id: req.params.restaurant_id})
+exports.getmenus = function(req, res) {
+  Menu.findAsync({restaurant_id: req.params.restaurant_id})
     .then(responseWithResult(res))
     .catch(handleError(res));
 };

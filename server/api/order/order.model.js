@@ -16,7 +16,8 @@ var OrderSchema = new Schema({
     "special_mods": String
   }],
   restaurant_id: ObjectId,
-  status: String
+  status: String,
+  total: Number
 });
 
 module.exports = mongoose.model('Order', OrderSchema);

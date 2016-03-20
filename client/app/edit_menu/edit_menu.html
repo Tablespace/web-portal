@@ -1,8 +1,4 @@
-<!-- default themes and core styles -->
-<link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
-
 <sidebar></sidebar>
-
 <div class="col-xs-8 col-xs-offset-4 col-md-10 col-md-offset-2 main-content">
   <h1>Edit Menu</h1>
 
@@ -26,7 +22,7 @@
         </div>
 
         <md-card style="width: 200px;" ng-repeat="menuitem in menu.menu_items">
-          <img src="http://placehold.it/150x150" class="md-card-image" alt="user avatar">
+          <img src="{{menuitem.picture}}" class="md-card-image" alt="user avatar">
           <md-card-content>
             <h2>{{menuitem.title}}</h2>
             <p>{{menuitem.description}}</p>
